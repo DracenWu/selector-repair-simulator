@@ -166,7 +166,10 @@ for col, variant in zip(cols, VARIANTS):
         accepted = final_score >= pass_line
         st.metric("修复后命中率", f"{final_score:.0%}", delta=f"{final_score - initial_score:+.0%}")
         st.write("；".join(final_values) if final_values else "未提取到结果")
-        st.success("验收通过") if accepted else st.error("验收未通过")
+        if accepted:
+            st.success("验收通过")
+        else:
+            st.error("验收未通过")
         if repaired_by not in {"无需修复", "未修复"}:
             st.info(f"候选修复规则：{repaired_by}")
         with st.expander("查看测试页面与基准值"):
