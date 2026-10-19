@@ -145,7 +145,7 @@ with st.sidebar:
     css = st.text_input("基准 CSS 选择器", value=FALLBACK_SELECTORS[field][0])
     use_adaptive = st.checkbox("启用可解释的候选规则修复", value=True)
     pass_line = st.slider("验收阈值", 0.5, 1.0, 1.0, 0.1)
-    st.caption(f"Scrapling 环境状态：{'已安装' if SCRAPLING_AVAILABLE else '未安装'}；当前仿真不直接调用外部网站。")
+    st.caption("仿真环境：使用预设网页模拟类名与布局变更，支持采集规则验证、修复及结果导出。")
 
 cols = st.columns(3)
 rows: list[dict[str, object]] = []
